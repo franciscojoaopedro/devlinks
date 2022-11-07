@@ -1,0 +1,17 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+body{
+  font-family: sans-serif;
+  background: linear-gradient(#232630,#050507);
+  min-height: 100vh;
+}
+
+button,a{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
