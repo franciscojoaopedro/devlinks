@@ -13,17 +13,17 @@ const Home=()=>{
                 </a>
             </section>
             <section className="link-area">
-                <a href="#">
+                <a href="">
                     <p className="link-text">Meu Facebook</p>
                 </a>
             </section>
             <section className="link-area">
-                <a href="#">
+                <a href="https://github.com/franciscojoaopedro" target={"_blank"}>
                     <p className="link-text">Meu GitHub</p>
                 </a>
             </section>
             <section className="link-area">
-                <a href="#">
+                <a href="https://franciscojoaopedro-dev.vercel.app/" target={"_blank"}>
                     <p className="link-text">Meu Portifólio</p>
                 </a>
             </section>
