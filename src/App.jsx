@@ -1,13 +1,23 @@
-import { useState } from 'react'
+import { createBrowserRouter } from "react-router-dom";
 
-function App() {
-  
+import  Home from './pages/Home/index';
+import Login from './pages/Login/index';
+import Admin from './pages/Admin/index';
 
-  return (
-    <div>
-    <h1>Dev links</h1>
-    </div>
-  )
-}
 
-export default App
+const router=createBrowserRouter([
+  {
+    path:"/",
+    element: <Home/>
+  },
+  {
+    path:"/login",
+    element:<Login/>
+  },
+  {
+    path:"/admin",
+    element:<Admin/>
+  }
+])
+
+export {router}
