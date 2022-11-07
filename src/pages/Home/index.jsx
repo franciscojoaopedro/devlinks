@@ -13,7 +13,7 @@ const Home=()=>{
                 </a>
             </section>
             <section className="link-area">
-                <a href="">
+                <a href="https://www.facebook.com/ngunga.pedro.1/" target={"_blank"}>
                     <p className="link-text">Meu Facebook</p>
                 </a>
             </section>
