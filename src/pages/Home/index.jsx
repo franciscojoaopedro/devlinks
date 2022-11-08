@@ -1,5 +1,6 @@
+import { Social } from "../../components/Social";
 import "./home.css"
-
+import {FaFacebook,FaLinkedinIn,FaYoutube} from "react-icons/fa"
 
 const Home=()=>{
     return(
@@ -27,6 +28,18 @@ const Home=()=>{
                     <p className="link-text">Meu Portifólio</p>
                 </a>
             </section>
+
+            <footer>
+                <Social url="https://www.facebook.com/ngunga.pedro.1/" >
+                    <FaFacebook size={35} color="#fff" />
+                </Social>
+                <Social url="https://www.youtube.com/" >
+                    <FaYoutube size={35} color="red" />
+                </Social>
+                <Social url="https://www.linkedin.com/in/francisco-pedro-a7812b1b8/" >
+                    <FaLinkedinIn size={35} color="#fff" />
+                </Social>
+            </footer>
            </main>
         </div>
     )
