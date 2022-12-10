@@ -1,12 +1,14 @@
 import { useState,useEffect } from "react";
 import { Social } from "../../components/Social";
 import "./home.css"
-import {FaFacebook,FaLinkedinIn,FaYoutube} from "react-icons/fa"
+import {FaFacebook,FaInstagram,FaYoutube} from "react-icons/fa"
 import {
 getDocs,
 collection,
 orderBy,
-query
+query,
+doc,
+getDoc
 } from "firebase/firestore"
 import {db} from "../../services/firebaseConnection"
 
@@ -14,6 +16,7 @@ import {db} from "../../services/firebaseConnection"
 const Home=()=>{
 
     const [links,setLinks]=useState([])
+    const [sociaLinks,setSocialLinks]=useState({})
 
 useEffect(()=>{
     async function loadLinks(){
@@ -40,7 +43,21 @@ useEffect(()=>{
 },[])
 
 useEffect(()=>{
+async function loadSocialLinks(){
+     const docRef=doc(db,"social","link")
+  await  getDoc(docRef)
+    .then((snapshot)=>{
+        if(snapshot.data() !== undefined){
+            setSocialLinks({
+                facebook:snapshot.data().facebook,
+                instagram:snapshot.data().instagram,
+                youtube:snapshot.data().youtube
 
+            })
+        }
+    })
+}
+loadSocialLinks()
 },[])
 
     return(
@@ -59,17 +76,21 @@ useEffect(()=>{
            }
             
 
-            <footer>
-                <Social url="https://www.facebook.com/ngunga.pedro.1/" >
-                    <FaFacebook size={35} color="#fff" />
+               {
+                   links.length !== 0 && Object.keys(sociaLinks).length>0 &&(
+              <footer>
+                <Social url={sociaLinks?.facebook} >
+                <FaFacebook size={35} color="#fff" />
                 </Social>
-                <Social url="https://www.youtube.com/" >
-                    <FaYoutube size={35} color="red" />
+                <Social url={sociaLinks?.youtube} >
+                    <FaYoutube size={35} color="#fff" />
                 </Social>
-                <Social url="https://www.linkedin.com/in/francisco-pedro-a7812b1b8/" >
-                    <FaLinkedinIn size={35} color="#fff" />
+                <Social url={sociaLinks?.instagram} >
+                    <FaInstagram size={35} color="#fff" />
                 </Social>
             </footer>
+                )
+               }
            </main>
         </div>
     )
